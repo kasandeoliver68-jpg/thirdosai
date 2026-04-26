@@ -1,0 +1,1053 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #f4f7fb;
+  background:
+    radial-gradient(circle at top left, rgba(89, 126, 255, 0.22), transparent 30%),
+    radial-gradient(circle at right bottom, rgba(255, 191, 103, 0.16), transparent 26%),
+    linear-gradient(180deg, #0b1020 0%, #06070d 100%);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --surface: rgba(10, 15, 29, 0.82);
+  --surface-strong: rgba(14, 21, 41, 0.96);
+  --border: rgba(255, 255, 255, 0.08);
+  --accent: #7dd3fc;
+  --accent-strong: #38bdf8;
+  --accent-soft: rgba(125, 211, 252, 0.16);
+  --success: #2dd4bf;
+  --warning: #f59e0b;
+  --danger: #fb7185;
+  --text-soft: #a4b3d1;
+  --shadow: 0 30px 80px rgba(2, 6, 23, 0.42);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #06070d;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+button,
+.ghost-button,
+.primary-button,
+.icon-button {
+  transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease, border-color 160ms ease;
+}
+
+button:hover,
+.ghost-button:hover,
+.primary-button:hover,
+.icon-button:hover {
+  transform: translateY(-1px);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: 100vh;
+  padding: 1.4rem;
+  background: rgba(7, 10, 18, 0.9);
+  border-right: 1px solid var(--border);
+  backdrop-filter: blur(18px);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 20;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.brand-mark {
+  width: 2.7rem;
+  height: 2.7rem;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, rgba(125, 211, 252, 0.9), rgba(56, 189, 248, 0.4));
+  color: #03111f;
+  box-shadow: 0 12px 30px rgba(56, 189, 248, 0.22);
+}
+
+.sidebar-brand p,
+.sidebar-brand strong,
+.sidebar-tagline,
+.topbar-copy p,
+.section-kicker,
+.section-subtitle,
+.metric-card span,
+.metric-card small,
+.insight-card span,
+.venture-card span,
+.position-card span,
+.report-preview span,
+.settings-card span,
+.investor-card span,
+.workflow-step span,
+.placeholder-card span,
+.activity-card span,
+.activity-card small,
+.log-item span,
+.feed-item strong,
+.feed-item p,
+.topbar-status span,
+.hero-badges span,
+.hero-stat span,
+.hero-lead,
+.layer-card p,
+.stat-card span,
+.stat-card small,
+.ghost-button,
+.status-pill,
+.status-message,
+.table-shell,
+.error-banner {
+  color: var(--text-soft);
+}
+
+.sidebar-brand p,
+.sidebar-brand strong {
+  margin: 0;
+  letter-spacing: 0.14em;
+}
+
+.sidebar-brand strong {
+  color: #f8fbff;
+}
+
+.sidebar-tagline {
+  margin: 0;
+  max-width: 22ch;
+  font-size: 0.92rem;
+}
+
+.sidebar-nav {
+  display: grid;
+  gap: 0.5rem;
+  overflow: auto;
+  padding-right: 0.25rem;
+}
+
+.sidebar-nav button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.02);
+  color: #edf2fb;
+  cursor: pointer;
+}
+
+.sidebar-nav button.active {
+  background: linear-gradient(135deg, rgba(125, 211, 252, 0.14), rgba(56, 189, 248, 0.06));
+  border-color: rgba(125, 211, 252, 0.24);
+}
+
+.sidebar-close {
+  margin-top: auto;
+}
+
+.app-main {
+  min-width: 0;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  background: rgba(6, 7, 13, 0.8);
+  backdrop-filter: blur(18px);
+}
+
+.topbar-copy h1,
+.topbar-copy p {
+  margin: 0;
+}
+
+.topbar-copy h1 {
+  font-size: 1.15rem;
+  letter-spacing: -0.03em;
+}
+
+.topbar-copy p {
+  font-size: 0.82rem;
+}
+
+.topbar-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.status-indicator {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 999px;
+  background: var(--success);
+  box-shadow: 0 0 0 6px rgba(45, 212, 191, 0.15);
+}
+
+.app-content {
+  width: min(1280px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 1.4rem 0 3rem;
+}
+
+.landing-page,
+.page-stack {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.hero-panel,
+.glass-card,
+.hero-stat,
+.layer-card,
+.workflow-step,
+.metric-card,
+.insight-card,
+.venture-card,
+.position-card,
+.investor-card,
+.report-card,
+.report-preview,
+.approval-card,
+.operator-card,
+.settings-card,
+.knowledge-card,
+.kanban-column,
+.kanban-card,
+.placeholder-card,
+.feed-item,
+.log-item,
+.activity-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow);
+}
+
+.hero-panel,
+.glass-card {
+  padding: 1.25rem;
+}
+
+.hero-panel {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
+}
+
+.eyebrow,
+.section-kicker {
+  margin: 0 0 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.26em;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.hero-copy h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 5vw, 4.9rem);
+  line-height: 0.95;
+  max-width: 10ch;
+  letter-spacing: -0.08em;
+}
+
+.hero-lead {
+  margin: 1rem 0 0;
+  max-width: 65ch;
+  font-size: 1.02rem;
+}
+
+.hero-actions {
+  margin-top: 1.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.primary-button,
+.ghost-button,
+.icon-button,
+.sidebar-nav button,
+.approval-buttons button {
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.92rem 1.2rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #02101f;
+  font-weight: 800;
+  box-shadow: 0 12px 30px rgba(56, 189, 248, 0.22);
+}
+
+.ghost-button,
+.icon-button {
+  background: transparent;
+  color: #edf2fb;
+  border: 1px solid var(--border);
+}
+
+.ghost-button {
+  padding: 0.84rem 1.05rem;
+}
+
+.primary-button.small,
+.ghost-button.small {
+  padding: 0.64rem 0.9rem;
+}
+
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.hero-badges span,
+.workflow-step span,
+.placeholder-card span,
+.metric-card span,
+.metric-card small,
+.section-subtitle,
+.stat-card span,
+.stat-card small,
+.feed-item p,
+.activity-card p,
+.log-item p,
+.venture-card p,
+.position-card p,
+.report-card p,
+.report-preview p,
+.settings-card p,
+.investor-card p,
+.knowledge-card p,
+.approval-card p,
+.insight-card p,
+.layer-card p,
+.feed-item strong,
+.report-card span,
+.report-preview span,
+.settings-card span,
+.investor-card dt,
+.investor-card dd,
+.workflow-step strong,
+.kanban-card,
+.status-pill {
+  font-size: 0.92rem;
+}
+
+.hero-badges span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.hero-stats {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.hero-stat {
+  padding: 1rem;
+  min-height: 118px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-stat strong {
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  line-height: 1;
+}
+
+.layer-grid,
+.metric-grid,
+.insight-grid,
+.venture-grid,
+.positioning-grid,
+.capital-grid,
+.operator-grid,
+.settings-grid,
+.report-grid,
+.processing-grid,
+.chart-grid,
+.two-column-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.layer-grid,
+.metric-grid,
+.capital-grid,
+.operator-grid,
+.settings-grid,
+.report-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.processing-grid,
+.chart-grid,
+.two-column-grid,
+.hero-panel {
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+}
+
+.chart-grid.wide,
+.report-grid,
+.positioning-grid,
+.insight-grid,
+.venture-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.layer-card,
+.workflow-step,
+.metric-card,
+.insight-card,
+.venture-card,
+.position-card,
+.investor-card,
+.report-card,
+.report-preview,
+.approval-card,
+.operator-card,
+.settings-card,
+.kanban-column,
+.kanban-card,
+.placeholder-card,
+.feed-item,
+.log-item,
+.activity-card {
+  padding: 1rem;
+}
+
+.layer-card h3,
+.venture-card h3,
+.operator-card h3,
+.report-card h3,
+.approval-card h3,
+.investor-card h3,
+.kanban-column h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1rem;
+}
+
+.workflow-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.workflow-step {
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.workflow-step span {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.workflow-step strong {
+  color: #f7faff;
+}
+
+.glass-card h2,
+.glass-card h3,
+.section-header h2,
+.section-header.compact h2 {
+  margin: 0;
+}
+
+.section-header,
+.feed-head,
+.pipeline-header,
+.investor-head,
+.topbar,
+.task-card-top,
+.approval-actions,
+.report-grid,
+.report-preview,
+.topbar-status,
+.hero-actions,
+.placeholder-row,
+.filter-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.section-header,
+.feed-head,
+.pipeline-header,
+.section-header.compact {
+  margin-bottom: 1rem;
+}
+
+.section-header.compact {
+  align-items: flex-start;
+}
+
+.section-subtitle {
+  max-width: 58ch;
+  margin: 0.3rem 0 0;
+}
+
+.section-action {
+  display: grid;
+  justify-items: end;
+  gap: 0.4rem;
+}
+
+.intake-form,
+.filter-row {
+  display: grid;
+  gap: 1rem;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+label {
+  display: grid;
+  gap: 0.45rem;
+  font-size: 0.92rem;
+  color: #d7e2f4;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: rgba(7, 10, 20, 0.75);
+  color: #f4f7fb;
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: rgba(125, 211, 252, 0.8);
+  box-shadow: 0 0 0 4px rgba(125, 211, 252, 0.12);
+}
+
+.placeholder-row {
+  flex-wrap: wrap;
+}
+
+.placeholder-card {
+  flex: 1 1 260px;
+  min-height: 120px;
+  display: grid;
+  align-content: center;
+  gap: 0.4rem;
+  justify-items: start;
+  color: #edf2fb;
+}
+
+.metric-card strong,
+.insight-card strong,
+.report-preview strong,
+.venture-highlight strong {
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+}
+
+.metric-card {
+  display: grid;
+  gap: 0.35rem;
+  min-height: 126px;
+}
+
+.metric-card strong {
+  line-height: 1;
+}
+
+.metric-card small {
+  margin-top: auto;
+}
+
+.table-shell {
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.9rem 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+th {
+  color: #f6f9ff;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.status-pill.success,
+.status-pill.live {
+  color: #6ee7d3;
+  border-color: rgba(45, 212, 191, 0.22);
+  background: rgba(45, 212, 191, 0.08);
+}
+
+.status-pill.warning {
+  color: #fdba74;
+  border-color: rgba(245, 158, 11, 0.24);
+  background: rgba(245, 158, 11, 0.08);
+}
+
+.status-pill.neutral {
+  color: #cbd5e1;
+}
+
+.progress-track {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--accent), var(--success));
+}
+
+.stage-list,
+.activity-feed,
+.log-list,
+.approval-list,
+.report-list,
+.knowledge-list,
+.kanban-cards,
+.operator-grid,
+.capital-grid,
+.settings-grid,
+.venture-grid,
+.insight-grid,
+.positioning-grid {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.stage-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.78rem 0.9rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.stage-item.done {
+  color: #b7f7e9;
+}
+
+.stage-item.active {
+  background: rgba(125, 211, 252, 0.08);
+  border-color: rgba(125, 211, 252, 0.22);
+}
+
+.stage-item.pending {
+  opacity: 0.7;
+}
+
+.feed-item.warn {
+  border-color: rgba(245, 158, 11, 0.24);
+  background: rgba(245, 158, 11, 0.06);
+}
+
+.feed-item strong,
+.log-item span {
+  display: block;
+  color: #f7fbff;
+}
+
+.feed-item p,
+.log-item p,
+.activity-card p,
+.report-card p,
+.report-preview p,
+.approval-card p,
+.investor-card p,
+.operator-card p,
+.venture-card p,
+.position-card p,
+.insight-card p,
+.layer-card p,
+.settings-card p {
+  margin: 0.35rem 0 0;
+}
+
+.result-preview {
+  display: grid;
+  gap: 1rem;
+}
+
+.preview-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.preview-metrics div {
+  padding: 0.9rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+}
+
+.preview-metrics span {
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.kanban-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.kanban-column h3 {
+  margin-bottom: 0.8rem;
+}
+
+.kanban-cards {
+  gap: 0.65rem;
+}
+
+.kanban-card {
+  min-height: 82px;
+}
+
+.venture-highlight {
+  padding: 1rem;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(125, 211, 252, 0.14), rgba(56, 189, 248, 0.04));
+  border: 1px solid rgba(125, 211, 252, 0.18);
+}
+
+.venture-card ul,
+.position-card ul,
+.settings-card ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.position-card.large,
+.insight-card.large {
+  grid-column: span 2;
+}
+
+.insight-card.score {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+}
+
+.investor-card dl,
+.operator-card dl,
+.settings-card dl {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0.85rem 0 0;
+}
+
+.investor-card dt,
+.operator-card dt,
+.settings-card dt {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.investor-card dd,
+.operator-card dd,
+.settings-card dd {
+  margin: 0.15rem 0 0;
+  color: #f6f9ff;
+}
+
+.filter-row {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.approval-card {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.approval-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.report-grid {
+  align-items: start;
+}
+
+.report-list {
+  grid-template-columns: 1fr;
+}
+
+.report-preview {
+  min-height: 280px;
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.report-preview strong {
+  line-height: 1.05;
+}
+
+.settings-card.wide {
+  grid-column: span 2;
+}
+
+.error-banner {
+  margin: 0;
+  padding: 0.85rem 1rem;
+  border-radius: 18px;
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  background: rgba(127, 29, 29, 0.3);
+}
+
+.empty-state,
+.status-message {
+  margin: 0;
+  padding: 0.75rem 0;
+}
+
+.mobile-only {
+  display: none;
+}
+
+.sidebar-close {
+  display: none;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-panel,
+.glass-card,
+.metric-card,
+.insight-card,
+.venture-card,
+.position-card,
+.investor-card,
+.report-card,
+.report-preview,
+.approval-card,
+.operator-card,
+.settings-card,
+.kanban-column,
+.feed-item,
+.log-item,
+.activity-card {
+  animation: rise-in 560ms ease both;
+}
+
+@media (max-width: 1100px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: min(88vw, 320px);
+    transform: translateX(-102%);
+    transition: transform 180ms ease;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .mobile-only {
+    display: inline-flex;
+  }
+
+  .sidebar-close {
+    display: inline-flex;
+  }
+
+  .app-content {
+    width: min(1280px, calc(100% - 1rem));
+  }
+
+  .hero-panel,
+  .processing-grid,
+  .chart-grid,
+  .two-column-grid,
+  .report-grid,
+  .positioning-grid,
+  .insight-grid,
+  .venture-grid,
+  .capital-grid,
+  .operator-grid,
+  .settings-grid,
+  .layer-grid,
+  .metric-grid,
+  .kanban-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .workflow-strip,
+  .preview-metrics,
+  .field-grid,
+  .filter-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .topbar {
+    padding-inline: 0.85rem;
+  }
+
+  .app-content {
+    width: min(100% - 0.75rem, 1280px);
+  }
+
+  .glass-card,
+  .hero-panel {
+    padding: 1rem;
+    border-radius: 20px;
+  }
+
+  .hero-copy h1 {
+    max-width: none;
+  }
+
+  .hero-actions,
+  .topbar,
+  .section-header,
+  .feed-head,
+  .pipeline-header,
+  .approval-actions,
+  .topbar-status {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .topbar-status {
+    width: 100%;
+  }
+
+  .position-card.large,
+  .insight-card.large,
+  .settings-card.wide {
+    grid-column: span 1;
+  }
+}
